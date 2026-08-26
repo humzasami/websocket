@@ -67,9 +67,6 @@ app.post('/webhook', (req, res) => {
   console.log(`[Webhook] Emitting to session: ${sessionId}`);
   io.to(sessionId).emit('n8n_response', message);
   
-  // Also emit to 'message' event for compatibility
-  io.to(sessionId).emit('message', message);
-  
   res.json({ success: true, sessionId });
 });
 
